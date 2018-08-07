@@ -1,0 +1,51 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*train
+*predict
+
+# ML tmp files
+*.bin
+*.model
+data
+doc/output
+.DS_Store
+*.pdf
+*.swp
+*.log
+
+# ctags generate files
+tags
+
+# threshold
+ffmpoly2/scripts/*.res
+ffmpoly2/scripts/*.png

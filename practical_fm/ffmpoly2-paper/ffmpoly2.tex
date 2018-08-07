@@ -1,0 +1,38 @@
+\documentclass[sigconf,review]{acmart}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfigure}
+\settopmatter{printacmref=false}
+
+\setcopyright{rightsretained}
+
+\acmConference[RecSys'18]{ACM Conference Series on Recommender Systems}{October 2nd}{Vancouver, Canada}
+\acmYear{2018}
+\copyrightyear{2018}
+
+%\acmArticle{4}
+%\acmPrice{15.00}
+\begin{document}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\title{Adaptive Model-based Feature Conjunction for CTR Prediction}
+\begin{abstract}
+Click-through rate (CTR) prediction is an important topic in recommender systems and computational advertising. As previous research indicates, a key point to maximize CTR is feature conjunction for making the training data more informative. Despite great progress, existing methods still fail to choose suitable settings of feature conjunction for the given data. In particular, a linear model on the pair-wise feature conjunction may overfit the training set if it is highly sparse. For such data a model based on low-rank latent matrices is shown to be more appropriate. Unfortunately, practitioners now face difficulties to decide when to use which. In this paper, we propose an adaptive framework to address the feature conjunction problem. Our proposed framework adaptively chooses effective models to do feature conjunction according to data properties. We offer a case for building feature conjunction based on feature-pair frequency. Efficient training as well as parameter selection are thoroughly investigated. We conduct comprehensive experiments to demonstrate the effectiveness of the adaptive model over existing models for CTR prediction on both benchmark and production data.\\\\
+\textbf{KEYWORDS}\\
+Recommender System, Machine learning, CTR, Feature Conjunction, Adaptive Model\\
+\end{abstract}
+
+\maketitle
+\input{ffmpoly2-introduction}
+\input{ffmpoly2-comparision}
+\input{ffmpoly2-framework}
+\input{ffmpoly2-model}
+\input{ffmpoly2-experiment}
+\input{ffmpoly2-experiment-classification}
+\input{ffmpoly2-relatedwork}
+\input{ffmpoly2-conclusion}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{ffmpoly2-ref}
+\end{document}
+
+

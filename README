@@ -1,0 +1,16 @@
+1. Set UP
+./setup.sh 
+It will compile ffmpoly2, poly2, ffm and create log_folders.
+
+2. Generate pair
+
+3. Generate threshold param list:
+./news20/threshold.sh  pair_file
+
+4. Set up parameter range in grid_ffmpoly2_cv.sh
+a) modify the param range(i.e. threshold range)
+a-2) modify num_core 
+b) ./grid_ffmpoly2_cv.sh fold_num
+
+5. Merge log file
+tools are in log_tools.

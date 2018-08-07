@@ -1,0 +1,36 @@
+\section{Existing Models: Poly2, FM and FFM}
+\label{sec:FM}
+
+Poly2 \cite{Chang:2010:TTL:1756006.1859899} effectively conducts feature conjunction by using the degree-2 polynomial expansion of features. This model learns a weight for each feature pair with the following $\phi$ function:
+\begin{equation}
+\label{poly2}
+\phi_{\text{Poly2}}(\boldsymbol{w},\boldsymbol{x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n} w_{h(j_1,j_2)}x_{j_1}x_{j_2},
+\end{equation}
+where $h(j_1,j_2)$ is a function encoding a feature pair, $x_{j_1}$ and $x_{j_2}$, into an index. Usually, all pairs are treated differently by, for example, \\
+\begin{equation}
+\label{hfunction}
+h({j_1},{j_2})={j_1}n+{j_2}.
+\end{equation}
+However, if $x_{j_1}$ and $x_{j_2}$ rarely occur in the same instance, $w_{h({j_1},{j_2})}$ is learned by overfitting the few instances with $x_{j_1}x_{j_2}\neq0$. To avoid the overfitting situation, a hash function can be used to group some unrelated pairs together. Therefore, different pairs may share the same weight though selecting a suitable hash function may not be an easy task.
+
+To address the issue of some rare $(x_{j_1}, x_{j_2})$ co-occurrences, in another model FM \cite{5694074}, the interaction between features is factorized into the product of latent factors. Each latent vector contains $k$ latent factors, where $k$ is a user-specified parameter. Then the $\phi$ function is as follows:
+\begin{equation}
+\label{fm}
+\phi_{\text{FM}}(\boldsymbol{w},\boldsymbol{x}) = \sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n} (\boldsymbol{w}_{j_1}\cdot\boldsymbol{w}_{j_2})x_{j_1}x_{j_2},
+\end{equation}
+where $\boldsymbol{w}_{j_1}$ (or $\boldsymbol{w}_{j_2}$) is a vector of $k$ latent factors. Because the updates of $\boldsymbol{w}_{j_1}$ and $\boldsymbol{w}_{j_2}$ are not restricted by the co-occurrence of feature pair $x_{j_1}$ and $x_{j_2}$ any more, the shortcoming of the Poly2 model may be alleviated.
+
+Based on FM, FFM proposed in \cite{Juan:2016:FFM:2959100.2959134} introduces the concept of fields. FFM groups features to several fields.  For each feature, it has latent vectors to all fields. The $\phi$ function is as follows:
+\begin{equation}
+\label{ffm}
+\phi_{\text{FFM}}(\boldsymbol{w},\boldsymbol{x}) = \sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^n (\boldsymbol{w}_{j_1,f_2}\cdot\boldsymbol{w}_{j_2,f_1})x_{j_1}x_{j_2},
+\end{equation}
+where $f_1$ and $f_2$ are respectively the fields of $j_1$ and $j_2$. The idea is that in deciding the weight for $x_{j_1}x_{j_2}$, we use ${j_1's}$ associated latent vector on ${j_2's}$ field and ${j_2's}$ associated latent vector on ${j_1's}$ field.
+
+To illustrate the way of feature conjunction in these models, we introduce an APP download example. Suppose an instance has three features and each feature is in a filed. The representation can be like 
+\begin{center}
+userdownload:map:1 gender:male:1 time:night:1,
+\end{center}
+where for example time is a field, night is a feature, and the feature value is one. Poly2 will encode a feature pair as $w_{h(\text{map,male})}$. For the same pair of features (\text{map}, \text{male}), FM has two latent vactors $\boldsymbol{w}_{\text{map}}$ and $\boldsymbol{w}_{\text{male}}$. It then uses $\boldsymbol{w}_{\text{map}}$$\cdot$$\boldsymbol{w}_{\text{male}}$ to get the weight of the feature conjunction. Moreover, FFM incorporates the concept of fields to the weight, making it as $\boldsymbol{w}_{\text{map,gender}}$$\cdot$$\boldsymbol{w}_{\text{male,userdownload}}$. Besides the same update way as FM, FFM groups the weight according to prior field information, providing a different way to do feature conjunction.
+
+In all, both Poly2 and FM/FFM are used in CTR prediction. Poly2, as we have indicated, is useful for dense features (i.e., many training instances have non-zero values for the feature). In contrast, FM/FFM have been shown to be useful for sparse features. Hence, we could take both their advantages to do feature conjunction.

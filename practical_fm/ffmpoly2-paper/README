@@ -1,0 +1,4 @@
+# Create output folder and generate PDF files and logs
+make
+# Remove output folder
+make clean

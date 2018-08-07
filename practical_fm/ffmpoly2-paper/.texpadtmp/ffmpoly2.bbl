@@ -1,0 +1,364 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{18}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Beutel, Ahmed, and Smola}{Beutel
+  et~al\mbox{.}}{2015}]%
+        {Beutel:2015:AAC:2736277.2741091}
+\bibfield{author}{\bibinfo{person}{Alex Beutel}, \bibinfo{person}{Amr Ahmed},
+  {and} \bibinfo{person}{Alexander~J. Smola}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{ACCAMS: Additive Co-Clustering to Approximate
+  Matrices Succinctly}. In \bibinfo{booktitle}{\emph{Proceedings of the 24th
+  International Conference on World Wide Web}} \emph{(\bibinfo{series}{WWW
+  '15})}. \bibinfo{publisher}{International World Wide Web Conferences Steering
+  Committee}, \bibinfo{address}{Republic and Canton of Geneva, Switzerland},
+  \bibinfo{pages}{119--129}.
+\newblock
+\showISBNx{978-1-4503-3469-3}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2736277.2741091}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Beutel, Chi, Cheng, Pham, and Anderson}{Beutel
+  et~al\mbox{.}}{2017}]%
+        {Beutel:2017:BGO:3038912.3052713}
+\bibfield{author}{\bibinfo{person}{Alex Beutel}, \bibinfo{person}{Ed~H. Chi},
+  \bibinfo{person}{Zhiyuan Cheng}, \bibinfo{person}{Hubert Pham}, {and}
+  \bibinfo{person}{John Anderson}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Beyond Globally Optimal: Focused Learning for
+  Improved Recommendations}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  26th International Conference on World Wide Web}} \emph{(\bibinfo{series}{WWW
+  '17})}. \bibinfo{publisher}{International World Wide Web Conferences Steering
+  Committee}, \bibinfo{address}{Republic and Canton of Geneva, Switzerland},
+  \bibinfo{pages}{203--212}.
+\newblock
+\showISBNx{978-1-4503-4913-0}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3038912.3052713}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Chang, Hsieh, Chang, Ringgaard, and Lin}{Chang
+  et~al\mbox{.}}{2010}]%
+        {Chang:2010:TTL:1756006.1859899}
+\bibfield{author}{\bibinfo{person}{Yin-Wen Chang}, \bibinfo{person}{Cho-Jui
+  Hsieh}, \bibinfo{person}{Kai-Wei Chang}, \bibinfo{person}{Michael Ringgaard},
+  {and} \bibinfo{person}{Chih-Jen Lin}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Training and Testing Low-degree Polynomial Data
+  Mappings via Linear SVM}.
+\newblock \bibinfo{journal}{\emph{J. Mach. Learn. Res.}}  \bibinfo{volume}{11}
+  (\bibinfo{date}{Aug.} \bibinfo{year}{2010}), \bibinfo{pages}{1471--1490}.
+\newblock
+\showISSN{1532-4435}
+\urldef\tempurl%
+\url{http://dl.acm.org/citation.cfm?id=1756006.1859899}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Christakopoulou and Karypis}{Christakopoulou
+  and Karypis}{2016}]%
+        {Christakopoulou:2016:LIM:2959100.2959185}
+\bibfield{author}{\bibinfo{person}{Evangelia Christakopoulou} {and}
+  \bibinfo{person}{George Karypis}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Local Item-Item Models For Top-N Recommendation}.
+  In \bibinfo{booktitle}{\emph{Proceedings of the 10th ACM Conference on
+  Recommender Systems}} \emph{(\bibinfo{series}{RecSys '16})}.
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{67--74}.
+\newblock
+\showISBNx{978-1-4503-4035-9}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2959100.2959185}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Duchi, Hazan, and Singer}{Duchi
+  et~al\mbox{.}}{2011}]%
+        {duchi2011adaptive}
+\bibfield{author}{\bibinfo{person}{John~C Duchi}, \bibinfo{person}{Elad Hazan},
+  {and} \bibinfo{person}{Yoram Singer}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Adaptive Subgradient Methods for Online Learning
+  and Stochastic Optimization}.
+\newblock \bibinfo{journal}{\emph{Journal of Machine Learning Research}}
+  \bibinfo{volume}{12} (\bibinfo{year}{2011}), \bibinfo{pages}{2121--2159}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Guo, Tang, Ye, Li, and He}{Guo
+  et~al\mbox{.}}{2017}]%
+        {Guo:2017:DFB:3172077.3172127}
+\bibfield{author}{\bibinfo{person}{Huifeng Guo}, \bibinfo{person}{Ruiming
+  Tang}, \bibinfo{person}{Yunming Ye}, \bibinfo{person}{Zhenguo Li}, {and}
+  \bibinfo{person}{Xiuqiang He}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{DeepFM: A Factorization-machine Based Neural
+  Network for CTR Prediction}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  26th International Joint Conference on Artificial Intelligence}}
+  \emph{(\bibinfo{series}{IJCAI'17})}. \bibinfo{publisher}{AAAI Press},
+  \bibinfo{pages}{1725--1731}.
+\newblock
+\showISBNx{978-0-9992411-0-3}
+\urldef\tempurl%
+\url{http://dl.acm.org/citation.cfm?id=3172077.3172127}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{He, Pan, Jin, Xu, Liu, Xu, Shi, Atallah,
+  Herbrich, Bowers, and Candela}{He et~al\mbox{.}}{2014}]%
+        {He:2014:PLP:2648584.2648589}
+\bibfield{author}{\bibinfo{person}{Xinran He}, \bibinfo{person}{Junfeng Pan},
+  \bibinfo{person}{Ou Jin}, \bibinfo{person}{Tianbing Xu}, \bibinfo{person}{Bo
+  Liu}, \bibinfo{person}{Tao Xu}, \bibinfo{person}{Yanxin Shi},
+  \bibinfo{person}{Antoine Atallah}, \bibinfo{person}{Ralf Herbrich},
+  \bibinfo{person}{Stuart Bowers}, {and} \bibinfo{person}{Joaquin Qui\~{n}onero
+  Candela}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Practical Lessons from Predicting Clicks on Ads at
+  Facebook}. In \bibinfo{booktitle}{\emph{Proceedings of the Eighth
+  International Workshop on Data Mining for Online Advertising}}
+  \emph{(\bibinfo{series}{ADKDD'14})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, Article \bibinfo{articleno}{5},
+  \bibinfo{numpages}{9}~pages.
+\newblock
+\showISBNx{978-1-4503-2999-6}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2648584.2648589}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Juan, Lefortier, and Chapelle}{Juan
+  et~al\mbox{.}}{2017}]%
+        {Juan:2017:FFM:3041021.3054185}
+\bibfield{author}{\bibinfo{person}{Yuchin Juan}, \bibinfo{person}{Damien
+  Lefortier}, {and} \bibinfo{person}{Olivier Chapelle}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Field-aware Factorization Machines in a Real-world
+  Online Advertising System}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  26th International Conference on World Wide Web Companion}}
+  \emph{(\bibinfo{series}{WWW '17 Companion})}.
+  \bibinfo{publisher}{International World Wide Web Conferences Steering
+  Committee}, \bibinfo{address}{Republic and Canton of Geneva, Switzerland},
+  \bibinfo{pages}{680--688}.
+\newblock
+\showISBNx{978-1-4503-4914-7}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3041021.3054185}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Juan, Zhuang, Chin, and Lin}{Juan
+  et~al\mbox{.}}{2016}]%
+        {Juan:2016:FFM:2959100.2959134}
+\bibfield{author}{\bibinfo{person}{Yuchin Juan}, \bibinfo{person}{Yong Zhuang},
+  \bibinfo{person}{Wei-Sheng Chin}, {and} \bibinfo{person}{Chih-Jen Lin}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Field-aware Factorization Machines for CTR
+  Prediction}. In \bibinfo{booktitle}{\emph{Proceedings of the 10th ACM
+  Conference on Recommender Systems}} \emph{(\bibinfo{series}{RecSys '16})}.
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{43--50}.
+\newblock
+\showISBNx{978-1-4503-4035-9}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2959100.2959134}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Li, Liu, Smola, and Wang}{Li
+  et~al\mbox{.}}{2016}]%
+        {Li:2016:DDF:2835776.2835781}
+\bibfield{author}{\bibinfo{person}{Mu Li}, \bibinfo{person}{Ziqi Liu},
+  \bibinfo{person}{Alexander~J. Smola}, {and} \bibinfo{person}{Yu-Xiang Wang}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{DiFacto: Distributed Factorization Machines}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Ninth ACM International
+  Conference on Web Search and Data Mining}} \emph{(\bibinfo{series}{WSDM
+  '16})}. \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{377--386}.
+\newblock
+\showISBNx{978-1-4503-3716-8}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2835776.2835781}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{McMahan}{McMahan}{2011}]%
+        {pmlr-v15-mcmahan11b}
+\bibfield{author}{\bibinfo{person}{Brendan McMahan}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Follow-the-Regularized-Leader and Mirror Descent:
+  Equivalence Theorems and L1 Regularization}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Fourteenth International
+  Conference on Artificial Intelligence and Statistics}}
+  \emph{(\bibinfo{series}{Proceedings of Machine Learning Research})},
+  \bibfield{editor}{\bibinfo{person}{Geoffrey Gordon}, \bibinfo{person}{David
+  Dunson}, {and} \bibinfo{person}{Miroslav Dud¨ªk}} (Eds.),
+  Vol.~\bibinfo{volume}{15}. \bibinfo{publisher}{PMLR}, \bibinfo{address}{Fort
+  Lauderdale, FL, USA}, \bibinfo{pages}{525--533}.
+\newblock
+\urldef\tempurl%
+\url{http://proceedings.mlr.press/v15/mcmahan11b.html}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{McMahan, Holt, Sculley, Young, Ebner, Grady,
+  Nie, Phillips, Davydov, Golovin, Chikkerur, Liu, Wattenberg, Hrafnkelsson,
+  Boulos, and Kubica}{McMahan et~al\mbox{.}}{2013}]%
+        {McMahan:2013:ACP:2487575.2488200}
+\bibfield{author}{\bibinfo{person}{H.~Brendan McMahan}, \bibinfo{person}{Gary
+  Holt}, \bibinfo{person}{D. Sculley}, \bibinfo{person}{Michael Young},
+  \bibinfo{person}{Dietmar Ebner}, \bibinfo{person}{Julian Grady},
+  \bibinfo{person}{Lan Nie}, \bibinfo{person}{Todd Phillips},
+  \bibinfo{person}{Eugene Davydov}, \bibinfo{person}{Daniel Golovin},
+  \bibinfo{person}{Sharat Chikkerur}, \bibinfo{person}{Dan Liu},
+  \bibinfo{person}{Martin Wattenberg}, \bibinfo{person}{Arnar~Mar
+  Hrafnkelsson}, \bibinfo{person}{Tom Boulos}, {and} \bibinfo{person}{Jeremy
+  Kubica}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Ad Click Prediction: A View from the Trenches}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 19th ACM SIGKDD International
+  Conference on Knowledge Discovery and Data Mining}}
+  \emph{(\bibinfo{series}{KDD '13})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{1222--1230}.
+\newblock
+\showISBNx{978-1-4503-2174-7}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2487575.2488200}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Prillo}{Prillo}{2017}]%
+        {Prillo:2017:EVF:3109859.3109892}
+\bibfield{author}{\bibinfo{person}{Sebastian Prillo}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{An Elementary View on Factorization Machines}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Eleventh ACM Conference on
+  Recommender Systems}} \emph{(\bibinfo{series}{RecSys '17})}.
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{179--183}.
+\newblock
+\showISBNx{978-1-4503-4652-8}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3109859.3109892}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Rendle}{Rendle}{2010}]%
+        {5694074}
+\bibfield{author}{\bibinfo{person}{S. Rendle}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Factorization Machines}. In
+  \bibinfo{booktitle}{\emph{2010 IEEE International Conference on Data
+  Mining}}. \bibinfo{pages}{995--1000}.
+\newblock
+\showISSN{1550-4786}
+\urldef\tempurl%
+\url{https://doi.org/10.1109/ICDM.2010.127}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Rendle}{Rendle}{2012}]%
+        {Rendle:2012:FML:2168752.2168771}
+\bibfield{author}{\bibinfo{person}{Steffen Rendle}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Factorization Machines with libFM}.
+\newblock \bibinfo{journal}{\emph{ACM Trans. Intell. Syst. Technol.}}
+  \bibinfo{volume}{3}, \bibinfo{number}{3}, Article \bibinfo{articleno}{57}
+  (\bibinfo{date}{May} \bibinfo{year}{2012}), \bibinfo{numpages}{22}~pages.
+\newblock
+\showISSN{2157-6904}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2168752.2168771}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Rendle and Schmidt-Thieme}{Rendle and
+  Schmidt-Thieme}{2010}]%
+        {Rendle:2010:PIT:1718487.1718498}
+\bibfield{author}{\bibinfo{person}{Steffen Rendle} {and} \bibinfo{person}{Lars
+  Schmidt-Thieme}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Pairwise Interaction Tensor Factorization for
+  Personalized Tag Recommendation}. In \bibinfo{booktitle}{\emph{Proceedings of
+  the Third ACM International Conference on Web Search and Data Mining}}
+  \emph{(\bibinfo{series}{WSDM '10})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{81--90}.
+\newblock
+\showISBNx{978-1-60558-889-6}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1718487.1718498}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Richardson, Dominowska, and Ragno}{Richardson
+  et~al\mbox{.}}{2007}]%
+        {Richardson:2007:PCE:1242572.1242643}
+\bibfield{author}{\bibinfo{person}{Matthew Richardson}, \bibinfo{person}{Ewa
+  Dominowska}, {and} \bibinfo{person}{Robert Ragno}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Predicting Clicks: Estimating the Click-through
+  Rate for New Ads}. In \bibinfo{booktitle}{\emph{Proceedings of the 16th
+  International Conference on World Wide Web}} \emph{(\bibinfo{series}{WWW
+  '07})}. \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{521--530}.
+\newblock
+\showISBNx{978-1-59593-654-7}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1242572.1242643}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Xiao, Ye, He, Zhang, Wu, and Chua}{Xiao
+  et~al\mbox{.}}{2017}]%
+        {ijcai2017-435}
+\bibfield{author}{\bibinfo{person}{Jun Xiao}, \bibinfo{person}{Hao Ye},
+  \bibinfo{person}{Xiangnan He}, \bibinfo{person}{Hanwang Zhang},
+  \bibinfo{person}{Fei Wu}, {and} \bibinfo{person}{Tat{-}Seng Chua}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Attentional Factorization Machines: Learning the
+  Weight of Feature Interactions via Attention Networks}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Twenty-Sixth International Joint
+  Conference on Artificial Intelligence, {IJCAI-17}}}.
+  \bibinfo{pages}{3119--3125}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.24963/ijcai.2017/435}
+\showDOI{\tempurl}
+
+
+\end{thebibliography}

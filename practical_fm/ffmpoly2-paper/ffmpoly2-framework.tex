@@ -1,0 +1,22 @@
+\section{Model-based feature conjunction}
+We introduce our adaptive feature conjunction framework. Assume that a set of models, $\{\phi_1,\cdots,\phi_k\}$, is used for the same task. For each pair $(x_i,x_j)$, there are $k$ associated functions, denoted as 
+\begin{equation}
+\label{3.01}
+f_1(i,j),\cdots, f_k(i,j)
+\end{equation} 
+Then we formulate our framework as:
+
+\begin{equation}
+\begin{split}
+\label{3.1}
+\phi(\boldsymbol{w},\boldsymbol{x}) =\sum_{i=1}^n \sum_{j=i+1}^n f_1(i,j)\phi_1(w,x_i,x_j)+\cdots  \\
++\sum_{i=1}^n \sum_{j=i+1}^n f_k(i,j)\phi_k(w,x_i,x_j).
+\end{split}
+\end{equation}
+Usually only one of the $k$ values in (\ref{3.01}) is one and others are zeros, though more general settings can be considered. The intuition behind this new objective is that different feature pairs are routed to different models via their associated functions $f_1,\cdots,f_k$. Thus models suitable for different types of data can be effectively combined. While the concept of the proposed framework is simple, many issues must be addressed in order to make it practically viable. Next, we give some key points on this framework.
+
+\subsection{What Models Could be Used?}
+The models in (\ref{3.1}) should target to the same task, but provide different ways for feature conjunctions. For instance, both Poly2 and FFM model feature conjunctions in CTR prediction, so we can combine them together in our framework.
+
+\subsection{How Could Models be Combined?}
+Many potential priors could be encoded in $f(i,j)$, such as domain knowledge, feature pair frequency and so on. These functions can be in different forms. For example, a $0/1$ form indicates that under the given $(x_i,x_j)$, only some models are used. In contrast, if values are in the range [0,1], then a weighted combination is considered.

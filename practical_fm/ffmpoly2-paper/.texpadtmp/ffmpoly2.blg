@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: /Users/dongnanqing/Documents/GitHub/practical_fm/ffmpoly2-paper/.texpadtmp/ffmpoly2.aux
+The style file: ../ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: ../ffmpoly2-ref.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--numpages field, but no articleno or eid field, in Beutel:2015:AAC:2736277.2741091
+Warning--numpages field, but no articleno or eid field, in Beutel:2017:BGO:3038912.3052713
+Warning--numpages field, but no articleno or eid field, in Chang:2010:TTL:1756006.1859899
+Warning--numpages field, but no articleno or eid field, in Christakopoulou:2016:LIM:2959100.2959185
+Warning--empty address in Guo:2017:DFB:3172077.3172127
+Warning--numpages field, but no articleno or eid field, in Guo:2017:DFB:3172077.3172127
+Warning--numpages field, but no articleno or eid field, in Juan:2017:FFM:3041021.3054185
+Warning--numpages field, but no articleno or eid field, in Juan:2016:FFM:2959100.2959134
+Warning--numpages field, but no articleno or eid field, in Li:2016:DDF:2835776.2835781
+Warning--numpages field, but no articleno or eid field, in McMahan:2013:ACP:2487575.2488200
+Warning--numpages field, but no articleno or eid field, in Prillo:2017:EVF:3109859.3109892
+Warning--empty publisher in 5694074
+Warning--empty address in 5694074
+Warning--numpages field, but no articleno or eid field, in Rendle:2010:PIT:1718487.1718498
+Warning--numpages field, but no articleno or eid field, in Richardson:2007:PCE:1242572.1242643
+Warning--empty publisher in ijcai2017-435
+Warning--empty address in ijcai2017-435
+You've used 18 entries,
+            5733 wiz_defined-function locations,
+            1478 strings with 20918 characters,
+and the built_in function-call counts, 24873 in all, are:
+= -- 2827
+> -- 1011
+< -- 0
++ -- 335
+- -- 339
+* -- 1956
+:= -- 2546
+add.period$ -- 90
+call.type$ -- 18
+change.case$ -- 148
+chr.to.int$ -- 18
+cite$ -- 35
+duplicate$ -- 2209
+empty$ -- 1528
+format.name$ -- 395
+if$ -- 5767
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 85
+newline$ -- 238
+num.names$ -- 146
+pop$ -- 768
+preamble$ -- 1
+purify$ -- 310
+quote$ -- 0
+skip$ -- 799
+stack$ -- 0
+substring$ -- 1940
+swap$ -- 262
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 498
+warning$ -- 17
+while$ -- 144
+width$ -- 0
+write$ -- 440
+(There were 17 warnings)

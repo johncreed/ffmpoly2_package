@@ -1,0 +1,140 @@
+\section{An Adaptive Model for CTR prediction}
+
+\label{sec:model}
+
+We propose an adaptive model based on feature-pair frequency to illustrate our framework. From the given $m$ instances $\lbrace\boldsymbol{x}_i,y_i\rbrace_{i=1}^m$, we can introduce the %where $\boldsymbol{x}_i$ is a data instance including $n$ user and item attributes, and $y_i\in\lbrace-1,1\rbrace$ is the associated label. That is, $y_i=1$ means user click the item, $y_i=-1$ otherwise.
+%We further introduce the 
+feature density, which leads to $f$ functions for deciding the model to do feature conjunction. We make a number denoting how many times two features $x_{j_1}$ and $x_{j_2}$ both occur in the same training instance, which is the frequency of a feature pair. More formally
+\begin{equation}
+n_{j_1,j_2} := \lvert\lbrace\bigl((x_i)_{j_1},(x_i)_{j_2}\bigr) \mid (x_i)_{j_1}\ne0, (x_i)_{j_2}\ne0\rbrace\rvert.
+\end{equation}
+
+In our model, we suppose that different data sets have different feature-pair frequency distributions. For dense features, their $n_{j_1,j_2}$ is larger and we should consider the Poly2 models by following the discussion in Section \ref{sec:FM}. In contrast, for sparse features, $n_{j_1,j_2}$ is smaller and FM/FFM is more suitable.
+As a result, we denote  a hyperparameter $val_{\text{thresh}}$ as a threshold value dividing the set of feature pairs. We define the following $0/1$ function:
+
+\begin{equation}
+\label{2.0}
+\delta(x_{i_1},x_{j_2})=
+\begin{cases}
+1& \text{if}\, n_{j_1, j_2} < val_{\text{thresh}} \\
+0& \text{otherwise}.
+\end{cases}
+\end{equation}
+
+Based on the frequency, a feature pair is routed to one of the two models. We here consider Poly2 and FFM for dense and sparse feature pairs respectively, so the model is
+\begin{equation}
+\label{2.1}
+\begin{split}
+\phi_{\text{Adaptive}}&(\boldsymbol{w},\boldsymbol{x})= \\
+&\sum_{j_1=1}^n\sum_{j_2=j_1+1}^n \biggl(\delta(x_{j_1},x_{j_2})\times(\boldsymbol{w}_{j_1,f_2}^\text{F}\cdot\boldsymbol{w}_{j_2,f_1}^\text{F})x_{j_1}x_{j_2} \\
+&+(1-\delta(x_{j_1},x_{j_2}))\times w_{h(j_1,j_2)}^\text{P}x_{j_1}x_{j_2}\biggr), 
+\end{split}
+\end{equation}
+where \\
+%\begin{center}
+\begin{align*}
+\boldsymbol{w}=%\big[
+\begin{bmatrix}
+\begin{array}{c}
+\boldsymbol{w}^\text{F}\\
+\boldsymbol{w}^\text{P}
+\end{array}\end{bmatrix}.
+%\big].
+\end{align*}
+
+%\end{center}
+In (\ref{2.1}),\ $(\boldsymbol{w}_{j_1,f_2}^\text{F}\cdot\boldsymbol{w}_{j_2,f_1}^\text{F})x_{j_1}x_{j_2}$ is the FFM component and $w_{h(j_1,j_2)}^\text{P}x_{j_1}x_{j_2}$ is the Poly2 component. Note that in \eqref{2.1}, $\boldsymbol{w}^\text{F}_{j_1, f_2}, \boldsymbol{w}^\text{F}_{j_2, f_1} \in \mathbb{R}^k$, where $k$, as indicated in Section \ref{sec:FM}, is the latent dimension.
+
+The $\phi_{\text{Adaptive}}$ function could be taken into the logistic regression model to get the final optimization problem
+\begin{equation}\label{2.2}
+\begin{split}
+\min_{\boldsymbol{w}^{\text{F}},\boldsymbol{w}^{\text{P}}}\frac{\lambda_{\text{FFM}}}{2}\|\boldsymbol{w}^{\text{F}}\|_2^2 + \frac{\lambda_\text{Poly2}}{2}\|\boldsymbol{w}^\text{P}\|_2^2 &\\
++\sum_{i=1}^{m}\log(1+\exp(-y_i\phi_{\text{Adaptive}}(\boldsymbol{w},\boldsymbol{x}_i))),
+\end{split}
+\end{equation}
+where $\lambda_{\text{FFM}}$ and $\lambda_{\text{Poly2}}$ are regularization paramters.
+
+As in \cite{Beutel:2017:BGO:3038912.3052713}, we do hyperparameter optimization by as simple grid search, in which each run independently optimizes $\boldsymbol{w}$ under fixed hyperparameters. Specifically, we split a given data set $\mathcal{D}$ into three disjoint parts following the convention in evaluating prediction tasks. They are respectively the training set $\mathcal{D}^\text{Tr}$, the validation set $\mathcal{D}^\text{Val}$ and the test set $\mathcal{D}^\text{Te}$. The former two data sets are used to adjust the parameters in the model and we evaluate officially the final performance on the last one. Specifically, by changing $val_{\text{thresh}}$, $\lambda_\text{FFM}$ and $\lambda_\text{Poly2}$, the model achieving the best validation performance is used for the final training and evaluation.
+
+\subsection{Optimization Method}
+
+To solve the optimization problem (\ref{2.2}), we adopt a stochastic gradient method to enable an instance level gradient computation. We consider AdaGrad \cite{duchi2011adaptive} here, which is a variant of stochastic gradient methods commonly used in training a FFM model. At each step, a data point is sampled for updating the model vector $\boldsymbol{w}$. Because Poly2 and FFM are both considered, the sub-gradient vector contains two parts. If the feature interaction satisfies $\delta(x_{j_1},x_{j_2}) = 1$, then the corresponding sub-gradient components are:
+\begin{align}
+\label{2.5}
+\boldsymbol{\mathit{g}}_{j_1,f_2}^\text{F} = \nabla_{\boldsymbol{w}_{j_1,f_2}^\text{F}}f(\boldsymbol{w}) = \lambda_\text{FFM}\cdot\boldsymbol{w}_{j_1,f_2}^\text{F} + \kappa\cdot\boldsymbol{w}_{j_2,f_1}^\text{F}x_{j_1}x_{j_2}, \\
+\boldsymbol{\mathit{g}}_{j_2,f_1}^\text{F} = \nabla_{\boldsymbol{w}_{j_2,f_1}^\text{F}}f(\boldsymbol{w}) = \lambda_\text{FFM}\cdot\boldsymbol{w}_{j_2,f_1}^\text{F} + \kappa\cdot\boldsymbol{w}_{j_1,f_2}^\text{F}x_{j_1}x_{j_2}. \label{2.6}
+\end{align}
+Otherwise, the sub-gradient element is:
+\begin{equation}
+\label{2.9}
+\mathit{g}_{j_1,j_2}^\text{P} = \nabla_{w_{h(j_1,j_2)}^\text{P}}f(w) = \lambda_\text{Poly2}\cdot w_{h(j_1,j_2)}^\text{P} + \kappa\cdot x_{j_1}x_{j_2}.
+\end{equation}
+In \eqref{2.5}-\eqref{2.9}, we have
+\begin{equation}
+\label{2.3.0}
+\begin{aligned}
+\kappa &= \frac{\partial\log(1+\exp(-y\phi_{\text{Adaptive}}(\boldsymbol{w},\boldsymbol{x})))}{\partial\phi_{\text{Adaptive}}(\boldsymbol{w},\boldsymbol{x})} \\
+&= \frac{-y}{1+\exp(y\phi_{\text{Adaptive}}(\boldsymbol{w},\boldsymbol{x}))}.
+\end{aligned}
+\end{equation}
+
+Then, the sums of squared gradient are also needed in AdaGrad. In the FFM part, the accumulated sum for each coordinate $d=1,\cdots,k$ is shown as follows.
+\begin{align}
+\label{2.3}
+(G_{j_1,f_2}^\text{F})_d\gets(G_{j_1,f_2}^\text{F})_d+(\mathit{g}_{j_1,f_2}^\text{F})_d^2, \\
+\label{2.4}
+(G_{j_2,f_1}^\text{F})_d\gets(G_{j_2,f_1}^\text{F})_d+(\mathit{g}_{j_2,f_1}^\text{F})_d^2.
+\end{align}
+In the Poly2 part, the sum is accumulated as:
+\begin{equation}
+\label{2.11}
+G_{h(j_1,j_2)}^\text{P}\gets G_{h(j_1,j_2)}^\text{P} + (\mathit{g}_{h(j_1,j_2)}^\text{P})^2.
+\end{equation}
+
+Finally, we update $\boldsymbol{w}_{j_1,f_2}^\text{F}$, $\boldsymbol{w}_{j_2,f_1}^\text{F}$ in FFM and $w_{h(j_1,j_2)}^\text{P}$ in Poly2 respectively via $\boldsymbol{G}_{j_1,f_2}^\text{F}$, $\boldsymbol{G}_{j_2,f_1}^\text{F}$ and $G_{h(j_1,j_2)}^\text{P}$.
+
+\begin{align}
+(w_{j_1,f_2}^\text{F})_d\gets(w_{j_1,f_2}^\text{F})_d-\frac{\eta}{\sqrt{(G_{j_1,f_2}^\text{F})_d}}(\mathit{g}_{j_1,f_2}^\text{F})_d \label{2.7}, \\
+(w_{j_2,f_1}^\text{F})_d\gets(w_{j_2,f_1}^\text{F})_d-\frac{\eta}{\sqrt{(G_{j_2,f_1}^\text{F})_d}}(\mathit{g}_{j_2,f_1}^\text{F})_d \label{2.8},
+\end{align}
+and
+\begin{equation}
+\label{2.10}
+w_{h(j_1,j_2)}^\text{P}\gets w_{h(j_1,j_2)}^\text{P} - \frac{\eta}{\sqrt{G_{h(j_1,j_2)}^\text{P}}}\mathit{g}_{h(j_1,j_2)}^\text{P},
+\end{equation}
+where $\eta$ is the learning rate. To begin the optimization process, we initialize $\boldsymbol{w^\text{F}}$ in the FFM component with values randomly sampled from a uniform distribution between $[0,1/\sqrt{k}]$, while $\boldsymbol{w^\text{P}}$ in the Poly2 component is initialized as $\boldsymbol{0}$. The initial values of $G$ are all set to one. The overall procedure is presented in Algorithm \ref{algo}.
+
+\begin{algorithm}[ht]
+\caption{Training Feature Frequency Adaptive Model}
+\label{algo}
+\begin{algorithmic}[1]
+\renewcommand{\algorithmicrequire}{\textbf{Input}}
+\REQUIRE{training set $\mathcal{D}^\text{Tr}$, test set $\mathcal{D}^\text{Te}$ and validation set $\mathcal{D}^\text{Val}$}
+\STATE Initialize $G$, $\boldsymbol{w}^\text{F}$ and $w^\text{P}$.
+\STATE Set $k$, $\lambda_\text{FFM}$, $\lambda_\text{Poly2}$, learning rate $\eta$ and epochs $T$.
+\STATE Pre-compute the $n_{j_1,j_2}$ on $\mathcal{D}^\text{Tr}$
+\STATE Give threshold value $val_\text{thresh}$.
+\WHILE{$t<T$}
+\FOR{$i \in \{1,\cdots,m\}$}
+\STATE Sample a data point $(\boldsymbol{x},y)$
+\STATE Calculate $\kappa$ by (\ref{2.3.0})
+\FOR{$j_1\in$ non-zero terms in $\{1,\cdots,n\}$}
+\FOR{$j_2\in$\ non-zero terms in $\{j_1,\cdots,n\}$}
+\STATE Calculate $\delta$ according to (\ref{2.0})
+\IF{$\delta(x_{j_1},x_{j_2}) = 1$}
+\STATE Calculate the sub-gradient by (\ref{2.5}) and (\ref{2.6})
+\FOR{$d\in \{1,\cdots,k\}$}
+\STATE Update the gradient sum by (\ref{2.3}) and (\ref{2.4})
+\STATE Update the model by (\ref{2.7}) and (\ref{2.8})
+\ENDFOR
+\ELSE
+\STATE Calculate the sub-gradient by (\ref{2.9})
+\STATE Update the gradient sum by (\ref{2.11})
+\STATE Update the model by (\ref{2.10})
+\ENDIF
+\ENDFOR
+\ENDFOR
+\ENDFOR
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}

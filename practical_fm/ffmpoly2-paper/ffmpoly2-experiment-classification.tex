@@ -1,0 +1,16 @@
+\section{Experiments on General Classification Data}
+While our motivation in developing the adaptive model is for CTR prediction, the same idea may be useful for general classification problems. While in Figures \ref{fig.1}-\ref{fig.2} dense and sparse feature pairs are well separated, it is important to check if the same situation occur for other data sets. Therefore, in this section we collect and evaluate the following three types of data.
+\begin{itemize}
+\item Fully dense: for every feature, values in all (or almost all) instances are non-zero.
+\item Highly sparse: for every feature, the number of non-zero values is very small.
+\item Both: some features in the set are very dense, while others are highly sparse.
+\end{itemize}
+{\bf Describe our selected data sets,}
+{\bf describe training, validation and test sets preparation,}
+{\bf maybe we run Poly2 and FM rather than FFM because we may not have field information.}
+
+Data statistics are in Table\ref{Table3}.
+{\bf Table\ref{Table3} can present Data set Num:... Num:... Num:dense features Num:sparse features.}
+{\bf issue: should we use logloss or accuracy?}
+
+The parameter selection procedure is the same as that in Section \ref{sec:comparition}.{\bf Parameter ranges may need to by different?}
