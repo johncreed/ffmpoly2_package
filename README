@@ -9,8 +9,7 @@ It will compile ffmpoly2, poly2, ffm and create log_folders.
 
 4. Set up parameter range in grid_ffmpoly2_cv.sh
 a) modify the param range(i.e. threshold range)
-a-2) modify num_core 
-b) ./grid_ffmpoly2_cv.sh fold_num
+b) ./grid_ffmpoly2_cv.sh fold_num max_core
 
 5. Merge log file
 tools are in log_tools.
