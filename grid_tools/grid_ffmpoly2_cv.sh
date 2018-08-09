@@ -36,9 +36,9 @@ pair_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.tr.pair
 #for v in 0 3 12 43 151 529 1856 6506 22809 79962 280319 
 #6.4 k = 64 t = 2500
 
-train_path=real-sim.ffm.tr.${fold}.tr
-test_path=real-sim.ffm.tr.${fold}.va
-pair_path=real-sim.ffm.tr.pair
+train_path=real-sim/real-sim.ffm.tr.${fold}.tr
+test_path=real-sim/real-sim.ffm.tr.${fold}.va
+pair_path=real-sim/real-sim.ffm.tr.pair
 #for v in 0 6 43 291 1932 12817 
 #?? k=64 t=2500
 
