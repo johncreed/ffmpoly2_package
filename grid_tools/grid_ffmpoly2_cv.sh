@@ -18,12 +18,6 @@ pair_path=mnist/mnist_ove.scale.tr_va.ffm.$fold.tr.pair
 #for v in 0 2 8 23 68 198 571 1647 4747 13678 39410 
 #1.6 k = 64 t = 200
 
-train_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.tr
-test_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.va
-pair_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.tr.pair
-#for v in 0 3 12 43 151 529 1856 6506 22809 79962 280319 
-#6.4 k = 64 t = 2500
-
 train_path=ijcnn/ijcnn1.tr_va.ffm.$fold.tr
 test_path=ijcnn/ijcnn1.tr_va.ffm.$fold.va
 pair_path=ijcnn/ijcnn1.tr_va.ffm.$fold.tr.pair
@@ -36,6 +30,18 @@ pair_path=new20/news20.tr.ffm.pair
 #for v in ??
 #3.2 k=64 t=2000 l=0 1e-7 1e-5
 
+train_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.tr
+test_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.va
+pair_path=webspam/webspam_wc_normalized_unigram.tr_va.ffm.$fold.tr.pair
+#for v in 0 3 12 43 151 529 1856 6506 22809 79962 280319 
+#6.4 k = 64 t = 2500
+
+train_path=real-sim.ffm.tr.${fold}.tr
+test_path=real-sim.ffm.tr.${fold}.va
+pair_path=real-sim.ffm.tr.pair
+#for v in 0 6 43 291 1932 12817 
+#?? k=64 t=2500
+
 echo "Generate and check bin file and pair file!!!!"
 ./ffmpoly2-train -s 1 -t 1 -k 1 -vp ${test_path} -p ${pair_path} ${train_path} 
 echo "Finish generating and checking!! Start multi core!"
@@ -45,17 +51,17 @@ echo "Finish generating and checking!! Start multi core!"
 grid()
 {
   # Iteration
-  t=2000
+  t=2500
   # Latent vector
   k=64
   # Log path
   log_path=ffmpoly2_logs
   
-  for v in ??
+  for v in 0 6 43 291 1932 12817 
   do
-      for r in 3.2 1.6 0.8 0.4 0.2 
+      for r in 6.4 1.6 0.4 
       do
-          for l in 0 1e-7 1e-5
+          for l in 0
           do
            echo "./ffmpoly2-train -s 1 -t ${t} -k ${k} -v ${v} -vp ${test_path} -fl ${l} -pl ${l} -r ${r} -p ${pair_path} ${train_path} > ${log_path}/${test_path}.$l.$r.$v"
           done
