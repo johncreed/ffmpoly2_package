@@ -9,7 +9,7 @@ if [ $# -ne 1 ]
         echo "Start!!"
 fi
 
-res_file=news20.tr.ffm.res
+res_file=$1.res
 python static.py $1 $res_file
 tail -n 1 $res_file | cut -d ':' -f1 | xargs -I {} python gen_thresh.py {} > threshold_log.tr
 
