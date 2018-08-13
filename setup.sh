@@ -6,10 +6,13 @@ ffm_path=$tmp2/practical_fm/libffm
 poly2_path=$tmp2/practical_fm/poly2_w_linear
 
 cd $ffmpoly2_path
+make clean
 make & cd - 
 cd $ffm_path
+make clean
 make & cd -
 cd $poly2_path
+make clean
 make & cd -
 wait
 ln -sf $ffmpoly2_path/ffmpoly2-train

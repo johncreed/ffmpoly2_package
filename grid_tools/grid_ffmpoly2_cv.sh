@@ -40,7 +40,13 @@ train_path=real-sim/real-sim.ffm.tr.${fold}.tr
 test_path=real-sim/real-sim.ffm.tr.${fold}.va
 pair_path=real-sim/real-sim.ffm.tr.pair
 #for v in 0 6 43 291 1932 12817 
-#?? k=64 t=2500
+#0.8 k=64 t=2500
+
+train_path=frappe/frappe.ffm.tr_va.${fold}.tr
+test_path=frappe/frappe.ffm.tr_va.${fold}.va
+pair_path=frappe/frappe.ffm.tr_va.pair
+#for v in 0 11 124 1386 15455 172324 
+#0.025 k=512 t=2500
 
 echo "Generate and check bin file and pair file!!!!"
 ./ffmpoly2-train -s 1 -t 1 -k 1 -vp ${test_path} -p ${pair_path} ${train_path} 
@@ -53,15 +59,16 @@ grid()
   # Iteration
   t=2500
   # Latent vector
-  k=64
+  k=256
   # Log path
   log_path=ffmpoly2_logs
   
-  for v in 0 6 43 291 1932 12817 
+  #for v in 0 11 124 1386 15455 172324 
+  for v in 11 172324 
   do
-      for r in 6.4 1.6 0.4 
+      for r in 0.1 0.025 0.00625  
       do
-          for l in 0
+          for l in 1e-5 0 1e-7
           do
            echo "./ffmpoly2-train -s 1 -t ${t} -k ${k} -v ${v} -vp ${test_path} -fl ${l} -pl ${l} -r ${r} -p ${pair_path} ${train_path} > ${log_path}/${test_path}.$l.$r.$v"
           done
