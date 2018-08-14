@@ -1,0 +1,13 @@
+#data
+ijcnn*
+news20*
+webspam*
+mnist*
+real-sim*
+frappe*
+german-numer*
+
+#solver
+ffmpoly2-train
+ffm-train
+poly2-train
