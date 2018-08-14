@@ -1,4 +1,4 @@
-#! /bin/bash
+# /bin/bash
 
 # Get fold number and check cmd argument
 if [ $# -ne 2 ]
@@ -42,6 +42,12 @@ pair_path=real-sim/real-sim.ffm.tr.pair
 #for v in 0 6 43 291 1932 12817 
 #?? k=64 t=2500
 
+train_path=german-numer/german-numer_scale.tr_va.ffm.${fold}.tr
+test_path=german-numer/german-numer_scale.tr_va.ffm.${fold}.va
+pair_path=german-numer/german-numer_scale.tr_va.ffm.pair
+#for v in 0 3 14 55 210 800 
+#?? k=12 t=2500
+
 echo "Generate and check bin file and pair file!!!!"
 ./ffmpoly2-train -s 1 -t 1 -k 1 -vp ${test_path} -p ${pair_path} ${train_path} 
 echo "Finish generating and checking!! Start multi core!"
@@ -51,21 +57,24 @@ echo "Finish generating and checking!! Start multi core!"
 grid()
 {
   # Iteration
-  t=2500
+  t=5000
   # Latent vector
-  k=64
+  k=6
   # Log path
   log_path=ffmpoly2_logs
   
-  for v in 0 6 43 291 1932 12817 
-  do
-      for r in 6.4 1.6 0.4 
-      do
-          for l in 0
-          do
-           echo "./ffmpoly2-train -s 1 -t ${t} -k ${k} -v ${v} -vp ${test_path} -fl ${l} -pl ${l} -r ${r} -p ${pair_path} ${train_path} > ${log_path}/${test_path}.$l.$r.$v"
-          done
-      done
+  for k in 6
+  do 
+    for v in 0 160 320 480 540 800 
+    do
+        for r in 0.05 0.0125 0.003125
+        do
+            for l in 0 1e-5 1e-7 1e-6
+            do
+             echo "./ffmpoly2-train -s 1 -t ${t} -k ${k} -v ${v} -vp ${test_path} -fl ${l} -pl ${l} -r ${r} -p ${pair_path} ${train_path} > ${log_path}/${test_path}.$k.$l.$r.$v"
+            done
+        done
+    done
   done
 }
 
