@@ -594,11 +594,11 @@ namespace ffm_poly2{
                 ffm_double va_accuracy = va_res.second;
                 //ffm_double va_loss = one_epoch(va, false);
 
-                cout.width(15);
-                cout << fixed << setprecision(5) << va_loss;
+                cout.width(30);
+                cout << fixed << setprecision(10) << va_loss;
 
-                cout.width(15);
-                cout << fixed << setprecision(5) << va_accuracy;
+                cout.width(30);
+                cout << fixed << setprecision(10) << va_accuracy;
 
                 if(auto_stop){
                     if(va_loss > best_va_loss){
