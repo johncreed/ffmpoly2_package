@@ -11,8 +11,8 @@ b) split to data.te and data.tr
 ./split.py data_file_ffm 0.8
 will generate data_file.ffm.tr and data_file.ffm.te
 c) split into cv fold
-./split_cv.py data_file.ffm.tr
-./merge_cv.py data_file.ffm.tr
+./split_cv.py data_file.ffm.tr num_fold
+./merge_cv.py data_file.ffm.tr num_fold
 d)Generate pair_file and threshold
 make practical_fm/ffmpoly2 first and run it to generate pair_file for data_file.tr.
 
