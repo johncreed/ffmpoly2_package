@@ -1,13 +1,25 @@
 1. Set UP
-./setup.sh 
+a)./setup.sh 
 It will compile ffmpoly2, poly2, ffm and create log_folders.
+b)Link all file in data_tools to data_folder.
 
-2. Generate pair
+2. Data manipulation:
+a) Convert from svm format to ffm format:
+./convert2ffm_dummy.py data_file
+will generate data_file.ffm
+b) split to data.te and data.tr
+./split.py data_file_ffm 0.8
+will generate data_file.ffm.tr and data_file.ffm.te
+c) split into cv fold
+./split_cv.py data_file.ffm.tr
+./merge_cv.py data_file.ffm.tr
+d)Generate pair_file and threshold
+make practical_fm/ffmpoly2 first and run it to generate pair_file for data_file.tr.
 
 3. Generate threshold param list:
 ./news20/threshold.sh  pair_file
 
-4. Set up parameter range in grid_ffmpoly2_cv.sh
+4. Set up parameter range in grid_ffmpoly2_cv.sh, grid_poly2_cv.sh, grid_ffm_cv.sh
 a) modify the param range(i.e. threshold range)
 b) ./grid_ffmpoly2_cv.sh fold_num max_core
 
